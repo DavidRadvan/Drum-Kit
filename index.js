@@ -45,9 +45,26 @@ for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
     input(this.innerHTML);
 
+    buttonAnimation(this.innerHTML);
+
     });
 }
 
 document.addEventListener("keydown", function(event) {
+
   input(event.key);
+
+  buttonAnimation(event.key);
+
 })
+
+function buttonAnimation(currentKey) {
+
+  let activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
+
+}
